@@ -1,0 +1,122 @@
+.room {
+  padding-top: 85px;
+  padding-bottom: 170px;
+  background-color: var(--color-text);
+  @media (max-width: 800px) {
+    padding-top: 85px;
+    padding-bottom: 85px;
+  }
+
+  &__container {
+    padding-left: 65px;
+    padding-right: 10px;
+    position: relative;
+    @media (max-width: 1350px) {
+      padding-left: 20px;
+    }
+  }
+  &__swiper {
+    overflow: hidden;
+    width: calc(100vw - (100vw - 1440px) / 2);
+    padding-bottom: 60px;
+    margin: 0 auto;
+    @media (max-width:600px) {
+      padding-bottom: 30px;
+    }
+  }
+  &__title {
+    margin: 0 auto;
+    margin-bottom: 115px;
+    color: var(--color-light);
+  }
+  &__card {
+    width: 370px;
+    padding-bottom: 40px;
+    padding-right: 45px;
+    @media (max-width:1300px) {
+      padding-right: 15px;
+      width: 345px !important; 
+    }
+    @media (max-width:1120px) {
+      width: 315px !important;
+    }
+    @media (max-width:1000px) {
+      padding-right: 10px;
+      width: 310px !important;
+    }
+    @media (max-width:640px) {
+      padding-right: 10px;
+      width: 290px !important;
+    }
+    &:hover img{
+      transform: scale(1.25);
+    }
+    img {
+      width: 100%;
+    }
+  }
+  &__img {
+    // margin-bottom: 35px;
+    cursor: pointer;
+    position: relative;
+    width: 330px;
+    height: 400px;
+    transition: transform 0.25s;
+    overflow: hidden;
+    @media (max-width:1120px) {
+        width: 300px;
+      }
+    @media (max-width:640px) {
+      width: 280px;
+      height: 330px;
+    }
+
+    img {
+        object-fit: cover;
+        width: 330px;
+        height: 400px;
+        transition: transform 0.25s;
+    }
+
+    &-square {
+        position: absolute;
+        bottom: 5px;
+        left: 5px;
+        color: var(--color-light);
+        font-size: 96px;
+        @media (max-width:640px) {
+          font-size: 84px;
+        }
+      }
+    
+      &-number {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        color: var(--color-light);
+        font-size: 24px;
+  }
+}
+&__data {
+  padding-top: 35px;
+  cursor: pointer;
+  display: flex;
+  row-gap: 15px;
+  flex-direction: column;
+}
+&__image-square {
+
+}
+  &__price {
+    color: var(--white, #FFF);
+    font-size: 32px;
+    font-weight: 700;
+    line-height: normal;
+  }
+  &__value {
+    color: var(--white, #FFF);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: normal;
+  }
+}

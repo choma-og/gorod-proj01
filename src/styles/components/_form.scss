@@ -1,0 +1,262 @@
+.form {
+  background-color: var(--color-catskill);
+  &__container {
+    padding-top: 167px;
+    padding-bottom: 206px;
+    @media (max-width:996px) {
+      padding-top: 130px;
+      padding-bottom: 130px;
+    }
+    @media (max-width:800px) {
+      padding-top: 85px;
+      padding-bottom: 85px;
+    }
+    @media (max-width:600px) {
+      padding-bottom: 45px;
+    }
+
+  }
+  &__title {
+    margin-bottom: 147px;
+    @media (max-width:996px) {
+      margin-bottom: 110px;
+    }
+    @media (max-width:800px) {
+      margin-bottom: 85px;
+    }
+    @media (max-width:390px) {
+      margin-bottom: 70px;
+    }
+  }
+  &__content{
+    // align-items: center;
+    display: flex;
+    gap: 100px;
+    @media (max-width: 1390px) {
+      gap: 150px;
+    }
+    @media (max-width: 1110px) {
+      gap: 70px;
+    }
+    @media (max-width: 996px) {
+      flex-direction: column;
+    }
+  }
+  &__feedback {
+    @media (max-width: 996px) {
+      order: -1;
+    }
+  }
+  &__info {
+    flex: 0 0 42%;
+    padding-top: 107px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    @media (max-width: 996px) {
+      padding-top: 0px;
+    }
+    @media (max-width: 640px) {
+      row-gap: 20px;
+    }
+    @media (max-width: 390px) {
+      max-width: none;
+    }
+
+  }
+  &__tel {
+    color: var(--color-text);
+    font-family: Formular;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    @media (max-width: 1250px) {
+      font-size: 40px;
+    }
+    @media (max-width: 640px) {
+      font-size: 20px;
+    }
+  }
+  &__mail {
+    color: var(--color-text);
+    font-family: Formular;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    @media (max-width: 640px) {
+      font-size: 18px;
+    }
+  }
+  &__adress {
+    font-family: Formular;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    @media (max-width: 640px) {
+      font-size: 16px;
+    }
+  }
+  &__pin {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: fit-content;
+  }
+  &__map {
+    color: var(--black, #000);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: relative;
+    opacity: 0.8;
+    transition: opacity 0.3s ease 0s;
+    @media (max-width: 640px) {
+      font-size: 16px;
+    }
+    &::after {
+      position: absolute;
+      content: "";
+      background-color: black;
+      left: 0;
+      bottom: -2px;
+      width: 100%;
+      height: 1px;
+    }
+  }
+  .form__pin:hover .form__map {
+    opacity: 1;
+  }
+  &__subtitle {
+    color: var(--color-text);
+    font-family: Formular;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 65px;
+    @media (max-width: 1250px) {
+      font-size: 40px;
+    }
+    @media (max-width: 640px) {
+      font-size: 20px;
+      margin-bottom: 40px;
+    }
+  }
+}
+.feedback {
+  display: flex;
+  flex-direction: column;
+  row-gap: 50px;
+  flex: 0 1 72%;
+  
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+  &__name {
+    outline: none;
+    background-color: transparent;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--color-text);
+    margin-bottom: 53px;
+    color: var(--, #212121);
+    font-family: Formular;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    @media (max-width:640px) {
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+    &::placeholder {
+      color: var(--, #212121);
+      font-family: Formular;
+      font-size: 30px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      @media (max-width:640px) {
+        font-size: 16px;
+      }
+    }
+  }
+  &__tel {
+    outline: none;
+    background-color: transparent;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--color-text);
+    color: var(--, #212121);
+    font-family: Formular;
+    font-size: 30px;
+    font-style: normal;
+    position: relative;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 55px;
+    @media (max-width:640px) {
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      background-color: #000;
+      height: 2px;
+      bottom: 0;
+      right: 0;
+    }
+    &::placeholder {
+      color: var(--, #212121);
+      font-family: Formular;
+      font-size: 30px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      @media (max-width:640px) {
+        font-size: 16px;
+      }
+    }
+  }
+  &__btn {
+    display: flex;
+    align-items: center;
+    // justify-content: center;
+    @media (max-width:700px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    gap: 24px;
+    & .header__rent {
+      width: 165px;
+    }
+  }
+  &__info {
+    color: var(--color-text);
+    font-family: Formular;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    @media (max-width:1440px) {
+      max-width: 330px;
+    }
+    @media (max-width:996px) {
+      max-width: 470px;
+    }
+    @media (max-width:700px) {
+      max-width: 330px;
+    }
+
+  }
+
+}

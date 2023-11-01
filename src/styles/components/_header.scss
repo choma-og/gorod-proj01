@@ -1,0 +1,237 @@
+.header {
+  &-position {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 5;
+    // min-height: 146px;
+    min-height: 139px;
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+    transition: all 0.3s ease 0s;
+  }
+  &__cnt {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 65px;
+    @media (max-width: 800px) {
+      padding-right: 26px;
+    }
+    @media (max-width: 600px) {
+      padding-right: 13px;
+    }
+  }
+  &__tel {
+    display: none;
+    @media (max-width: 696px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+      }
+  }
+  &__rent {
+    @media (max-width: 696px) {
+        display: none;
+      }
+}
+  &__logo {
+    display: none;
+    img {
+      @media (max-width:500px) {
+        width: 120px;
+      }
+    }
+  }
+  &__menu {
+    // position: fixed;
+    // width: 100%;
+    // height: 100%;
+    // background-color: rgba(0, 0, 0, .8);
+    // left: 0;
+    // top: 0;
+    // z-index: 5;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    // opacity: 0;
+    // visibility: hidden;
+    // transition: all .3s ease 0s;
+    &._active {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, .8);
+      left: 0;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      // opacity: 0;
+      // visibility: hidden;
+      transition: all .3s ease 0s;
+    }
+  }
+}
+.btn--burger {
+    width: 58px;
+    height: 50px;
+    border-radius: 100%;
+    background-color: var(--color-black);
+    cursor: pointer;
+}
+.menu__icon {
+
+  position: absolute;
+  right: -124px;
+  top: 45px;
+  transition: all 0.3s ease 0s;
+  @media (max-width: 800px) {
+      right: -90px;
+    }
+  @media (max-width: 600px) {
+      right: -70px;
+    }
+  // @media(max-width: 606px) {
+  //     right: 40px;
+  // }
+  span,
+  &::after{
+    border-radius: 3px;
+    left: 13px;
+    position: absolute;
+    height: 2px;
+    width: 33px;
+    transition: all .3s ease 0s;
+    background-color: var(--color-light);
+    transform: translateX(0);
+    transition: all .3s ease 0s;
+  }
+
+  &::after {
+    content: "";
+  }
+
+  span{
+    top: 58%;
+  }
+
+  &::after {
+    top: 21px;
+  }
+  &._active {
+    z-index: 3;
+      @media(max-width: 606px) {
+        right: 12px;
+      }
+    
+  }
+  &._active span{
+    top: 25px;
+    transform: rotate(-35deg) translate(0px, -50%);
+  }
+  &._active::after{
+    top: 23px;
+    transform: rotate(35deg) translate(0px, 50%);
+  }
+
+}
+.menu {
+  
+  &__body {
+    position: fixed;
+    left: 0;top: 0;
+    padding: 50px 10px 20px 65px;
+    z-index: 99;
+    width: 500px;
+    height: 100%;
+    display: flex;
+    background-color: black;
+    flex-direction: column;
+    transition: 0.5s;
+    transform: translateX(-100%);
+    // overflow: auto;
+    @media (max-width:606px) {
+      width: 100%;
+      padding: 50px 30px 30px 35px;
+    }
+    &._active {
+      transform: translateX(0%);
+      &::before {
+        content: "";
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 120px;
+        background-color: black;
+        z-index: 1;
+      }
+    }
+  }
+  &__box {
+    overflow-y: auto;
+  }
+  &__logo {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    margin-bottom: 120px;
+    img {
+      position: fixed;
+    }
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    margin-bottom: 200px;
+    @media (max-width:600px) or (max-height: 800px) {
+      margin-bottom: 90px;
+    }
+  }
+  &__link {
+    position: relative;
+    color: var(--color-light);
+    font-size: 34px;
+    font-weight: 500;
+    transition: all 0.3s ease 0s;
+    @media (max-width:600px) {
+      font-size: 28px;
+    }
+    &::before {
+      content: url("/public/img/svg/arrow.svg");
+      position: absolute;
+      top: 3px;
+      left: -15px;
+      opacity: 0;
+      transition: all 0.3s ease 0s;
+    }
+    &:hover {
+      padding-left: 40px;
+    }
+    &:hover::before{
+      opacity: 1;
+      left: 0;
+    }
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 18px;
+    color: var(--color-light);
+    font-weight: 400;
+    line-height: 140%; /* 25.2px */
+
+    &-tel {
+      color: var(--color-light);
+    }
+    &-adress {
+      color: var(--color-light);
+    }
+  }
+}
