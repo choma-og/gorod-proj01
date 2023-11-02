@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gorod</title>
+    <link rel="stylesheet" href="./styles/style.scss"/>
+    <script type="module" crossorigin src="/gorod-proj01/assets/index-2ed8cfc4.js"></script>
+    <link rel="stylesheet" href="/gorod-proj01/assets/style-8ec5e18a.css">
+  </head>  <body>
+    <div class="wrapper">
+      <header class="header header-position" id="header">
+        <div class="header__cnt header-scroll">
+          <div class="header__menu menu">
+            <div class="menu__body" id="menu-body">
+              <div class="menu__box">
+                <a href="#" class="menu__logo">
+                  <img src="data:image/png;base64,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" alt="logotype">
+                </a>
+                <ul class="menu__list">
+                  <li class="menu__item" data-section="about">
+                    <a href="#about"  class="menu__link">О&nbsp;центре</a>
+                  </li>
+                  <li class="menu__item" data-section="advantages">
+                    <a href="#advantages"  class="menu__link">Преимущества</a>
+                  </li>
+                  <li class="menu__item" data-section="location">
+                    <a href="#location"  class="menu__link">Расположение</a>
+                  </li>
+                  <li class="menu__item" data-section="office">
+                    <a href="#office"  class="menu__link">О&nbsp;помещениях</a>
+                  </li>
+                  <li class="menu__item" data-section="room">
+                    <a href="#room"  class="menu__link">Офисы</a>
+                  </li>
+                  <li class="menu__item" data-section="form">
+                    <a href="#form"  class="menu__link">Контакты</a>
+                  </li>
+                </ul>
+                <div class="menu__info">
+                  <a href="tel:+79231726894" class="menu__info-tel">+7 923 172 68 94</a>
+                  <a href="https://yandex.ru/maps/197/barnaul/?indoorLevel=1&ll=83.634401%2C53.347027&mode=routes&rtext=~53.346976%2C83.634380&rtt=auto&ruri=~ymapsbm1%3A%2F%2Forg%3Foid%3D75375593200&z=17.64" target="_blank" class="menu__info-adress">Павловский тракт, 313Б</a>
+                </div>
+              </div>
+              <div class="menu__icon btn--burger" id="menu-icon">
+                <span></span>
+              </div>
+            </div>
+          </div>
+          <a href="" class="header__logo" id="header-logo">
+            <img src="/gorod-proj01/assets/logo-footer-63ba6870.svg" alt="">
+          </a>
+          <div class="header__buttons">
+              <a href="#form" class="header__rent btn--stroke" id="btn--stroke">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11.4065 20.4444L21 10.7222M21 10.7222L11.4065 1M21 10.7222H1" stroke="white" stroke-width="1.5" stroke-miterlimit="22.93" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Арендовать
+              </a>
+            <a href="tel:+79231726894" class="btn--burger header__tel">
+              <img src="/gorod-proj01/assets/call-bbe0b977.svg" alt="">
+            </a>
+          </div>
+        </div>
+      </header>      <main class="main">
+        <section class="hero section" id="hero" data-section="hero">
+        <div class="hero__about">
+          <picture class="hero__logo">
+            <source srcset="/gorod-proj01/assets/logo-main-mini-35d1d6d7.svg " media="(max-width: 800px)" />
+            <img src="/gorod-proj01/assets/logo-main-11651bcf.svg" alt="logo" />
+          </picture>
+          <p class="hero__descr">деловой центр / аппартаменты</p>
+        </div>
+        </section>        <section class="about section" id="about" data-section="about">
+          <div class="about__container">
+            <h2 class="about__title title">Быть ближе к&nbsp;клиентам</h2>
+            <div class="about__content">
+              <div class="about__adress">
+                <div class="about__img">
+                  <img src="/gorod-proj01/assets/about-1-950e1b9e.jpg" alt="">
+                </div>
+                <div class="about__info">
+                  <p class="about__text">Деловой Центр &laquo;Город&raquo;&nbsp;&mdash; ваш ключ к&nbsp;бизнесу 
+        в&nbsp;развивающемся районе. Современные офисные пространства, удобное расположение и&nbsp;инфраструктура для успешного предпринимательства.</p>
+                  <a class="about__pin" href="https://clck.ru/36Bfik">
+                    <svg width="14" height="21" viewBox="0 0 14 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <ellipse cx="7" cy="6.75" rx="7" ry="6.75" fill="black"/>
+                      <path d="M7 7.5V21" stroke="black"/>
+                    </svg>
+                    <div class="about__map">Павловский тракт, 313Б</div>
+                  </a>
+                </div>
+              </div>
+              <div class="about__advantages">
+                <ul class="about__list">
+                  <li class="about__item">
+                    <h3 class="about__value"><div>2</div> лифта</h3>
+                    <span>до 1000кг</span>
+                  </li>
+                  <li class="about__item">
+                    <h3 class="about__value"><div>4</div> квартала</h3>
+                    <span>в&nbsp;шаговой доступности</span>
+                  </li>
+                  <li class="about__item">
+                    <h3 class="about__value"><div>58</div></h3>
+                    <span>офисных помещения</span>
+                  </li>
+                  <li class="about__item">
+                    <h3 class="about__value"><div>80</div></h3>
+                    <span>мест <br> на паркинге</span>
+                  </li>
+                  </ul>
+              </div>
+              <div class="about__rent rent">
+                <div class="about__info rent__info ">
+                  <p class="about__text rent__text">Аренда офисов в&nbsp;нашем деловом центре&nbsp;&mdash; это отличная возможность для вашего бизнеса. 
+        Мы&nbsp;предлагаем современные офисные пространства, готовые удовлетворить потребности вашей компании.
+                  </p>
+                  <a href="#room" class="rent__btn btn--stroke btn--stroke-black">Выбрать помещение</a>
+                </div>
+                <picture class="rent__image">
+                  <source srcset="/gorod-proj01/assets/about-2-mini-af5ddc1b.jpg " media="(max-width: 670px)" />
+                  <img class="rent__img" src="/gorod-proj01/assets/about-2-cc0826fd.jpg" alt="">
+                </picture>
+                
+              </div>
+            </div>
+          </div>
+        </section>        <section class="parallax">
+          <div class="parallax__img">
+            <img class="thumbnail"  src="/gorod-proj01/assets/12-455908c1.jpg" alt="">
+          </div>
+        </section>        <section class="advantages section" id="advantages" data-section="advantages">
+          <div class="advantages__container">
+            <h2 class="advantages__title title">Уникальное место <br> <div>для бизнеса</div></h2>
+            <div class="advantages__tabs tabs">
+              <ul class="tabs__list">
+                <li class="tabs__item"><span>Современные</span> <br> <span>технологии</span></li>
+                <li class="tabs__item"><span>Транспортная</span> <br> <span>доступность</span></li>
+                <li class="tabs__item"><span>Панорамные</span> <br> <span>окна</span></li>
+                <li class="tabs__item"><span>Шумоизоляция</span></li>
+              </ul>
+              <div class="tabs__box">
+                <div class="t1 tabs__content">
+                  <img src="/gorod-proj01/assets/advantages-1-15adde77.png" alt="">
+                  <p class="tabs__content-text">Класс энергоэффективности&nbsp;А, позволяет нам экономить ресурсы на&nbsp;отоплении и&nbsp;энергообеспечении</p>
+                </div>
+                <div class="t2 tabs__content ">
+                  <img src="/gorod-proj01/assets/advantages-2-d9992864.png" alt="">
+                   <p class="tabs__content-text">Благодаря удобному расположению в&nbsp;развивающемся районе, с&nbsp;легкостью можно доехать как из&nbsp;центра города, так и&nbsp;из&nbsp;пригородных районов.</p>
+                </div>
+                <div class="t3 tabs__content ">
+                  <img src="/gorod-proj01/assets/12-55caed8b.png" alt="">
+                   <p class="tabs__content-text">Панорамные окна позволяют максимально использовать естественное освещение, что делает интерьеры более яркими и&nbsp;комфортными</p>
+                </div>
+                <div class="t4 tabs__content ">
+                  <img src="/gorod-proj01/assets/34-97f7e649.png" alt="">
+                   <p class="tabs__content-text">Качественная шумоизоляция спроектирована на&nbsp;основе звукопоглощающих панелей, шумопоглощающих покрытий для пола и&nbsp;стен, а&nbsp;также специальных стекл</p>
+                </div>
+              </div>
+            </div>
+            <div class="advantages__swiper swiper--advantages swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide swiper--advantages__slide">
+                  <h3 class="swiper--advantages__title">Современные технологии</h3>
+                    <picture class="swiper--advantages__image">
+                      <source srcset="/gorod-proj01/assets/advantages-1-mini-5355f76e.png " media="(max-width: 500px)" />
+                      <img class="swiper--advantages__img" src="/gorod-proj01/assets/advantages-1-15adde77.png" alt="">
+                      <p class="swiper--advantages__text">Класс энергоэффективности&nbsp;А, позволяет нам экономить ресурсы на&nbsp;отоплении и&nbsp;энергообеспечении</p>
+                    </picture>
+                </div>
+                <div class="swiper-slide swiper--advantages__slide">
+                  <h3 class="swiper--advantages__title">Транспортная доступность</h3>
+                    <picture class="swiper--advantages__image">
+                      <source srcset="/gorod-proj01/assets/advantages-1-mini-5355f76e.png " media="(max-width: 500px)" />
+                      <img class="swiper--advantages__img" src="/gorod-proj01/assets/advantages-1-15adde77.png" alt="">
+                      <p class="swiper--advantages__text swiper--advantages__text-middle">Благодаря удобному расположению в&nbsp;развивающемся районе, с&nbsp;легкостью можно доехать как из&nbsp;центра города,
+                      так и&nbsp;из&nbsp;пригородных районов.</p>
+                    </picture>
+                </div>
+                <div class="swiper-slide swiper--advantages__slide">
+                  <h3 class="swiper--advantages__title">Панорамные окна</h3>
+                    <picture class="swiper--advantages__image">
+                      <source srcset="/gorod-proj01/assets/advantages-1-mini-5355f76e.png " media="(max-width: 500px)" />
+                      <img class="swiper--advantages__img" src="/gorod-proj01/assets/advantages-1-15adde77.png" alt="">
+                      <p class="swiper--advantages__text swiper--advantages__text-middle">Панорамные окна позволяют максимально использовать естественное освещение, что делает интерьеры более яркими
+                      и&nbsp;комфортными</p>
+                    </picture>
+                </div>
+                <div class="swiper-slide swiper--advantages__slide">
+                  <h3 class="swiper--advantages__title">Шумоизоляция</h3>
+                    <picture class="swiper--advantages__image">
+                      <source srcset="/gorod-proj01/assets/advantages-1-mini-5355f76e.png " media="(max-width: 500px)" />
+                      <img class="swiper--advantages__img" src="/gorod-proj01/assets/advantages-1-15adde77.png" alt="">
+                      <p class="swiper--advantages__text swiper--advantages__text-big">Качественная шумоизоляция спроектирована на&nbsp;основе звукопоглощающих панелей, шумопоглощающих покрытий для пола
+                      и&nbsp;стен, а&nbsp;также специальных стекл</p>
+                    </picture>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>        <section class="location section" id="location" data-section="location">
+          <div class="location__container">
+            <h2 class="location__title title">удачное Расположение</h2>
+            <div class="location__map">
+              <img src="/gorod-proj01/assets/location-d976ecad.svg" alt="">
+            </div>
+            <div class="about__advantages">
+              <ul class="about__list location__list">
+                <li class="about__item">
+                  <h3 class="about__value"><div>5</div>минут</h3>
+                  <span>пешком <br> до ТРЦ Арена</span>
+                </li>
+                <li class="about__item">
+                  <h3 class="about__value"><div>5</div>минут</h3>
+                  <span>на машине <br> до района <br> Спутник</span>
+                </li>
+                <li class="about__item">
+                  <h3 class="about__value"><div>6</div>минут</h3>
+                  <span>на машине <br> до ЖК <br> Лапландия</span>
+                </li>
+                <li class="about__item">
+                  <h3 class="about__value"><div>8</div>минут</h3>
+                  <span>на машине <br> до Аэропорта</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>        <section class="office section" id="office" data-section="office">
+          <div class="office__container">
+            <h2 class="office__title title">ваш новый офис</h2>
+            <div class="office__content">
+              <div class="office-room">
+                <div class="office-room__descr">
+                  <p class="office-room__text">Наши офисы созданы для ваших амбиций: просторные, функциональные, с&nbsp;инновационной инфраструктурой и&nbsp;невероятными видами. Мы&nbsp;предлагаем идеальное пространство для вдохновения и&nbsp;роста вашего бизнеса.</p>
+                  <a href="#room" class="office-room__btn btn--stroke btn--stroke-black">Выбрать помещение</a>
+                </div>
+                <picture class="office-room__img">
+                  <source srcset="/gorod-proj01/assets/office-1-mini-619f4cdb.jpeg " media="(max-width: 670px)" />
+                  <img src="/gorod-proj01/assets/office-1-dfadd24b.jpg" alt="">
+                </picture>
+              </div>
+              <div class="office-about">
+                <picture class="office-about__img">
+                  <source srcset="/gorod-proj01/assets/office-2-mini-8ba4462f.jpg " media="(max-width: 670px)" />
+                  <img src="/gorod-proj01/assets/office-2-28b548c0.jpg" alt="">
+                </picture>
+                <div class="office-about__descr">
+                  <ul class="about__list office__list">
+                    <div class="office__list-1">
+                      <li class="about__item office__item">
+                        <h3 class="about__value office__value-descr"><div>13</div>м²</h3>
+                        <span>площадь <br> помещений</span>
+                      </li>
+                      <li class="about__item office__item">
+                        <h3 class="about__value office__value"><div>5,0</div>м</h3>
+                        <span>высота <br> первого этажа</span>
+                      </li>
+                    </div>
+                    <div class="office__list-2">
+                      <li class="about__item office__item">
+                        <h3 class="about__value office__value-descr"><div>700</div>м²</h3>
+                        <span>площадь <br> этажа</span>
+                      </li>
+                      <li class="about__item office__item">
+                        <h3 class="about__value office__value"><div>3,6</div>м</h3>
+                        <span>высота <br> этажей</span>
+                      </li>
+                    </div>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>        <section class="plan">
+         <div class="plan__container">
+          <img class="plan__compas" src="/gorod-proj01/assets/compas-28a56acc.svg" alt="">
+          <h2 class="plan__title title">поэтажный план</h2>
+          <div class="plan__tabs">
+           <div class="plan__floor">
+            <ul class="plan__list">
+             <li class="plan__item">1 этаж</li>
+             <li class="plan__item">2 этаж</li>
+             <li class="plan__item">3 этаж</li>
+             <li class="plan__item">5 этаж</li>
+            </ul>
+            <div class="plan__legends">
+             <span class="plan__sales">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="9" cy="9" r="8.5" fill="#8E8E8E" fill-opacity="0.5" stroke="white"/>
+              </svg>
+              Занято
+              </span>
+             <span class="plan__free">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="9" cy="9" r="8.5" fill="#C0FFC7" fill-opacity="0.6" stroke="white"/>
+              </svg>
+              Свободно
+              </span>
+            </div>
+           </div>
+           <div class="plan__box">
+            <div class="e1 plan__content">
+             <svg class="genplan__link genplan" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 1920 1080"  preserveAspectRatio="xMidYMid">
+              <a class="genplan__link  free" data-flat='{"number": 8, "price": "179 400", "square": 46.26 , "flat": 1, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                <polygon data-flat="Комната №8"
+                  points="898.4,107 610.9,107 610.9,544.9 898.4,544.9 898.4,357.7">
+                </polygon>
+              </a>
+              <a class="genplan__link free" data-flat='{"number": 9, "price": "179 400", "square": 46.26 , "flat": 1, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                <polygon data-flat="Комната №9"
+                  points="906,107 906,544.9 1102.7,544.9 1102.7,608.7 1319.4,608.7 1319.4,771.2 1494.8,771.2 1494.8,107  912.6,107">
+                </polygon>
+              </a>
+              <a class="genplan__link free" data-flat='{"number": 3, "price": "179 400", "square": 46.26 , "flat": 1, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                <polygon data-flat="Комната №3"
+                  points="598.2,918.5 598.2,990.5 458.8,990.5 458.8,918.5 519.5,918.5">
+                </polygon>
+              </a>
+              <a class="genplan__link sales" data-flat='{"number": 6, "price": "179 400", "square": 46.26 , "flat": 1, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                <polygon data-flat="Комната №6"
+                  points="552.6,627.2 552.6,717.1 600.7,717.1 600.7,633.4 600.7,627.2">
+                </polygon>
+              </a>
+              <a class="genplan__link free" data-flat='{"number": 5, "price": "179 400", "square": 46.26 , "flat": 1, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                <polygon data-flat="Комната №5"
+                  points="549.9,627.2 549.9,717.1 531.4,717.1 531.4,771.2 460.1,771.2 460.1,627.2 536.7,627.2">
+                </polygon>
+              </a>
+              <a class="genplan__link sales" data-flat='{"number": 2, "price": "179 400", "square": 46.26 , "flat": 1, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                <polygon data-flat="Комната №2"
+                  points="1047.8,990.5 1047.8,599.9 655.4,599.9 655.4,875.1 612.2,918.3 603.9,918.3 603.9,990.5">
+                </polygon>
+              </a>
+              <a class="genplan__link free" data-flat='{"number": 4, "price": "179 400", "square": 46.26 , "flat": 1, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                <polygon data-flat="Комната №4"
+                  points="542.7,775.8 542.7,857.7 458.8,857.7 458.8,775.8 500.7,775.8">
+                </polygon>
+              </a>
+              <a class="genplan__link sales" data-flat='{"number": 7, "price": "179 400", "square": 46.26 , "flat": 1, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                <polygon data-flat="Комната №7" 
+                points="600.7,554.1 552.8,554.1 458.8,554.1 458.8,621 600.7,621">
+                </polygon>
+              </a>
+              <image xlink:href="/gorod-proj01/assets/plan-1-330af7f2.png" width="1920" height="1080"></image>
+              </svg>
+            </div>
+            <div class="e2 plan__content" >
+            <svg class="genplan" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 1920 1080"  preserveAspectRatio="xMidYMid"
+              y="0px" width="100%" height="100%" preserveAspectRatio="xMidYMid">
+              <a class=" genplan__link free" data-flat='{"number": 216, "price": "179 400", "square": 46.26 , "dataId": 8, "flat": 2, "imgplan": "/public/img/floor/floor-2.jpg"}' >
+                <polygon  points="1613.4,640.5 1613.4,608.8 1664.3,608.8 1664.3,635.2 1755,635.2 1755,869.2 1642.3,869.2 1642.3,688.1 1613.4,688.1"></polygon>
+              </a>
+              <a class="genplan__link free"  data-flat='{"number": 208, "price": "179 400", "square": 46.26 , "flat": 2, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                <polygon  points="194.3,619.8 240.5,619.8 240.5,608.8 303.1,608.8 303.1,868.2 194.3,868.2"></polygon>
+              </a>
+              <a class="genplan__link sales"  data-flat='{"number": 207, "price": "179 400", "square": 46.26 , "flat": 2, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                <polygon  points="408.8,868.2 311,868.2 311,608.8 359.9,608.8 408.8,608.8"></polygon>
+              </a>
+              <a class="genplan__link free"  data-flat='{"number": 206, "price": "179 400", "square": 46.26 , "flat": 2, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                <polygon  points="520.6,868.2 417.6,868.2 417.6,608.8 469.1,608.8 520.6,608.8 "></polygon>
+              </a>
+              <a class="genplan__link sales"  data-flat='{"number": 205, "price": "179 400", "square": 46.26 , "flat": 2, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                <polygon  points="632.9,868.2 529.9,868.2 529.9,608.8 581.4,608.8 632.9,608.8"></polygon>
+              </a>
+              <a class="genplan__link sales"  data-flat='{"number": 204, "price": "179 400", "square": 46.26 , "flat": 2, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                <polygon  points="745.7,868.2 637.8,868.2 637.8,608.8 691.7,608.8 745.7,608.8"></polygon>
+              </a>
+              <a class="genplan__link free"  data-flat='{"number": 203, "price": "179 400", "square": 46.26 , "flat": 2, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                <polygon  points="858.4,868.2 750.5,868.2 750.5,608.8 804.5,608.8 858.4,608.8"></polygon>
+              </a>
+              <a class="genplan__link sales"  data-flat='{"number": 201, "price": "179 400", "square": 46.26 , "flat": 2, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                <polygon  points="1087,868.2 979.1,868.2 979.1,684.8 1033,684.8 1087,684.8"></polygon>
+              </a>
+              <a class="genplan__link free"  data-flat='{"number": 212, "price": "179 400", "square": 46.26 , "flat": 2, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                <polygon  points="1527.5,417.7 1405.5,417.7 1405.5,211.2 1466.5,211.2 1527.5,211.2"></polygon>
+              </a>
+              <a class="genplan__link free"  data-flat='{"number": 218, "price": "179 400", "square": 46.26 , "flat": 2, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                <polygon  points="1527.5,869.2 1425.3,869.2 1425.3,683.8 1476.4,683.8 1527.5,683.8"></polygon>
+              </a>
+              <a class="genplan__link free"  data-flat='{"number": 219, "price": "790 400", "square": 46.26 , "flat": 2, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                <polygon  points="1425.3,869.2 1323.1,869.2 1323.1,771.7 1310.1,765.9 1310.1,684.8 1374.2,684.8 1425.3,684.8"></polygon>
+              </a>
+              <a class="genplan__link sales"  data-flat='{"number": "213-214", "price": "179 400", "square": 46.26 , "flat": 2, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                <polygon  points="1752.8,467.7 1622.3,467.7 1619.4,417.7 1538.3,417.7 1538.3,211.2 1645.5,211.2 1752.8,211.2"></polygon>
+              </a>
+              <a class="genplan__link free"  data-flat='{"number": 215, "price": "790 400", "square": 46.26 , "flat": 2, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                <polygon  points="1752.8,632.7 1668.4,630.7 1668.6,603.1 1617.4,603.1 1617.4,468.8 1685.1,468.8 1752.8,468.8"></polygon>
+              </a>
+              <a class="genplan__link sales"  data-flat='{"number": "209-211", "price": "179 400", "square": 46.26 , "flat": 2, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                <polygon  points="1308.9,466.1 754.7,466.1 753.9,537.1 195,537.1 195,211.2 751.9,211.2 1308.9,211.2"></polygon>
+              </a>
+              <a class="genplan__link sales" data data-flat='{"number": 202, "price": "179 400", "square": 46.26 , "flat": 2, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                <polygon  points="972,868.2 864.1,868.2 864.1,608.8 918.1,608.8 1003,608.8 1003,680.7 972,680.6"></polygon>
+              </a>
+              <a class="genplan__link free"  data-flat='{"number": 217, "price": "179 400", "square": 46.26 , "flat": 2, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                <polygon  points="1640.5,869.2 1538.3,869.2 1538.3,683.8 1589.4,683.8 1640.5,683.8"></polygon>
+              </a>
+              <image xlink:href="/gorod-proj01/assets/plan-2-8d794def.png" width="1920" height="1080"></image>
+             </svg>
+            </div>
+            <div class="e3 plan__content">
+              <svg class="genplan" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px"
+                y="0px" width="100%" height="100%" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid" y="0px"
+                preserveAspectRatio="xMidYMid">
+                <a class="free genplan__link"  data-flat='{"number": 308, "price": "179 400", "square": 46.26 , "flat": 3, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                  <polygon points="524,472.7 417.7,472.3 417.7,211.4 630.4,211.4 630.4,315.1 630.4,535.1 524,535.1">
+                  </polygon>
+                </a>
+                <a class="free genplan__link" data-flat='{"number": 309, "price": "179 400", "square": 46.26 , "flat": 3, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                  <polygon points="639.3,211.4 639.3,536.2 746.3,536.2 746.3,211.4 692.8,211.4">
+                  </polygon>
+                </a>
+                <a class="free genplan__link" data-flat='{"number": 310, "price": "179 400", "square": 46.26 , "flat": 3, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                  <polygon points="750.7,211.4 750.7,536.2 857.7,536.2 857.7,211.4 804.2,211.4">
+                  </polygon>
+                </a>
+                <a class="free genplan__link" data-flat='{"number": 311, "price": "179 400", "square": 46.26 , "flat": 3, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                  <polygon points="865.2,211.4 865.2,536.2 1004,536.2 1004,465.6 978.5,465.4 978.5,211.4 921.9,211.4">
+                  </polygon>
+                </a>
+                <a class="free genplan__link" data-flat='{"number": 312, "price": "179 400", "square": 46.26 , "flat": 3, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                  <polygon points="1307.9,211.4 1307.9,398.8 1088.1,398.8 1088.1,456.2 989.1,456.2 989.1,211.4">
+                  </polygon>
+                </a>
+                <a class="free genplan__link" data-flat='{"number": 313, "price": "179 400", "square": 46.26 , "flat": 3, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                  <polygon points="1318,211.4 1318,329.2 1318,456.2 1414.5,456.2 1414.5,211.4">
+                  </polygon>
+                </a>
+                <a class="free genplan__link" data-flat='{"number": 314, "price": "179 400", "square": 46.26 , "flat": 3, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                  <polygon points="1529.8,211.4 1529.8,542.4 1376.1,542.4 1376.1,465.3 1424.1,465.3 1424.1,211.4">
+                  </polygon>
+                </a>
+                <a class="free genplan__link" data-flat='{"number": 316, "price": "179 400", "square": 46.26 , "flat": 3, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                  <polygon points="1754,869.5 1645.9,869.5 1645.9,551.2 1718.3,551.2 1754,551.2">
+                  </polygon>
+                </a>
+                <a class="free genplan__link" data-flat='{"number": 317, "price": "179 400", "square": 46.26 , "flat": 3, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                  <polygon points="1636.5,869.5 1636.5,621.2 1577.4,621.2 1537.8,621.2 1537.8,869.5">
+                  </polygon>
+                </a>
+                <a class="free genplan__link" data-flat='{"number": 318, "price": "179 400", "square": 46.26 , "flat": 3, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                  <polygon points="1526.8,621.2 1382.8,621.2 1382.8,685 1428.5,685 1428.5,869.5 1529.8,869.5 1529.8,621.2">
+                  </polygon>
+                </a>
+                <a class="free genplan__link" data-flat='{"number": 319, "price": "179 400", "square": 46.26 , "flat": 3, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                  <polygon points="1310.8,690.5 1418.2,690.5 1418.2,869.5 1322.9,869.5 1322.9,763 1310.8,763">
+                  </polygon>
+                </a>
+                <a class="free genplan__link" data-flat='{"number": 301, "price": "179 400", "square": 46.26 , "flat": 3, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                  <polygon points="981.6,690.5 1085.1,690.5 1085.1,869.5 981.6,869.5 981.6,692.5">
+                  </polygon>
+                </a>
+                <a class="free genplan__link" data-flat='{"number": 302, "price": "179 400", "square": 46.26 , "flat": 3, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                  <polygon points="1001,614.6 1001,679.3 969.7,679.3 969.7,869.5 865.2,869.5 865.2,614.6">
+                  </polygon>
+                </a>
+                <a class="free genplan__link" data-flat='{"number": 305, "price": "179 400", "square": 46.26 , "flat": 3, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                  <polygon points="630.4,614.6 630.4,869.5 417.7,869.5 417.7,614.6 554.4,614.6">
+                  </polygon>
+                </a>
+                <a class="free genplan__link" data-flat='{"number": 306, "price": "179 400", "square": 46.26 , "flat": 3, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                  <polygon points="407.1,614.6 407.1,869.5 194.4,869.5 194.4,614.6 331.2,614.6">
+                  </polygon>
+                </a>
+                <a class="free genplan__link" data-flat='{"number": 307, "price": "179 400", "square": 46.26 , "flat": 3, "imgplan": "/public/img/floor/floor-1.jpg"}'>
+                  <polygon points="407.1,211.4 407.1,535.1 194.4,535.1 194.4,211.4 331.2,211.4">
+                  </polygon>
+                </a>
+                <a class="free genplan__link" data-flat='{"number": 303, "price": "179 400", "square": 46.26 , "flat": 3, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                  <polygon points="753,614.6 753,869.5 857.7,869.5 857.7,735.2 857.7,614.6">
+                  </polygon>
+                </a>
+                <a class="free genplan__link" data-flat='{"number": 304, "price": "179 400", "square": 46.26 , "flat": 3, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                  <polygon points="639.3,614.6 639.3,869.5 746.3,869.5 746.3,751.4 746.3,614.6">
+                  </polygon>
+                </a>
+                <a class="free genplan__link" data-flat='{"number": 315, "price": "179 400", "square": 46.26 , "flat": 3, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                  <polygon points="1537.8,211.4 1537.8,542.4 1754,542.4 1754,376.9 1754,211.4">
+                  </polygon>
+                </a>
+                <image xlink:href="/gorod-proj01/assets/plan-3-5053cabe.png" width="1920" height="1080"></image>
+              </svg>
+            </div>
+            <div class="e5 plan__content">
+            <svg class="genplan" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 1920 1080"  preserveAspectRatio="xMidYMid"
+              y="0px" width="100%" height="100%" preserveAspectRatio="xMidYMid">
+              <a class="genplan__link free" data-flat='{"number": "501-511", "price": "179 400", "square": 46.26 , "flat": 5, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                <polygon
+                  points="1086.4,867.5 1086.4,508.8 1310.1,508.8 1310.1,211.6 193.8,211.6 193.8,535 172.6,535 172.6,867.5">
+                </polygon>
+              </a>
+              <a class="genplan__link free" data-flat='{"number": 518, "price": "179 400", "square": 46.26 , "flat": 5, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                <polygon
+                  points="1418,689.6 1310.1,689.6 1310.1,762.7 1321.1,762.7 1321.1,869.7 1418,869.7">
+                </polygon>
+              </a>
+              <a class="genplan__link free" data-flat='{"number": 517, "price": "179 400", "square": 46.26 , "flat": 5, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                <polygon
+                  points="1652.3,622.6 1381.9,622.6 1381.9,684.7 1427.7,684.7 1427.7,869.7 1652.3,869.7">
+                </polygon>
+              </a>
+              <a class="genplan__link free" data-flat='{"number": 516, "price": "179 400", "square": 46.26 , "flat": 5, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                <polygon
+                  points="1753.5,560.1 1663.3,560.1 1663.3,869.7 1753.5,869.7 1753.5,725.2">
+                </polygon>
+              </a>
+              <a class="genplan__link free" data-flat='{"number": 515, "price": "179 400", "square": 46.26 , "flat": 5, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                <polygon
+                  points="1753.5,211.6 1663.3,211.6 1663.3,550.4 1753.5,550.4 1753.5,392.3">
+                </polygon>
+              </a>
+              <a class="genplan__link free" data-flat='{"number": 512, "price": "179 400", "square": 46.26 , "flat": 5, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                <polygon
+                  points="1415.3,211.6 1318.9,211.6 1318.9,546 1415.3,546 1415.3,390">
+                </polygon>
+              </a>
+              <a class="genplan__link free" data-flat='{"number": 513, "price": "179 400", "square": 46.26 , "flat": 5, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                <polygon
+                  points="1528.1,211.6 1528.1,466.8 1477.4,466.8 1477.4,544.3 1424.1,544.3 1424.1,211.6">
+                </polygon>
+              </a>
+              <a class="genplan__link free" data-flat='{"number": 514, "price": "179 400", "square": 46.26 , "flat": 5, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                <polygon
+                  points="1538.1,211.6 1538.1,466.2 1569.9,466.2 1569.9,505.5 1655.8,505.5 1655.8,211.6">
+                </polygon>
+              </a>
+              <image xlink:href="/gorod-proj01/assets/plan-5-b88d778c.png" width="1920" height="1080"></image>
+            </svg>
+            </div>
+          </div>
+          </div>
+        </div>
+        </section>        <section class="room section" id="room" data-section="room">
+          <h2 class="room__title title">Свободные помещения</h2>
+          <div class="room__container">
+        
+            <div class="room__swiper swiper">
+              <div class="swiper-wrapper">
+                <a class="genplan__link room__card swiper-slide" data-flat='{"number": 307, "price": "179 400", "square": 46.26 , "dataId": 307, "flat": 3, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                  <div class="room__img">
+                      <img src="/gorod-proj01/assets/floor-1-2fefcece.jpg" alt="" class="test" id="office307">
+                      <span class="room__img-square">46 м²</span>
+                      <span class="room__img-number">№307</span>
+                  </div>
+                  <div class="room__data">
+                    <span class="room__price">179 400 ₽/мес</span>
+                    <span class="room__value">2 этаж</span>
+                  </div>
+                </a>
+                <a class="room__card swiper-slide" id="room__308">
+                  <div class="room__img">
+                    <img src="/gorod-proj01/assets/floor-2-711286bd.jpg" alt="" class="test">
+                    <span class="room__img-square">105 м²</span>
+                    <span class="room__img-number">№308</span>
+                    </div>
+                  <div class="room__data">
+                    <span class="room__price">179 400 ₽/мес</span>
+                    <span class="room__value">2 этаж</span>
+                  </div>
+                </a>
+                <a class="room__card swiper-slide" id="room__309">
+                  <div class="room__img">
+                    <img src="/gorod-proj01/assets/floor-3-e8502381.jpg" alt="" class="test">
+                    <span class="room__img-square">89 м²</span>
+                    <span class="room__img-number">№309</span>
+                    </div>
+                  <div class="room__data">
+                    <span class="room__price">179 400 ₽/мес</span>
+                    <span class="room__value">2 этаж</span>
+                  </div>
+                </a>
+                <a class="room__card swiper-slide" id="room__309">
+                  <div class="room__img">
+                    <img src="/gorod-proj01/assets/floor-3-e8502381.jpg" alt="" class="test">
+                    <span class="room__img-square">89 м²</span>
+                    <span class="room__img-number">№309</span>
+                    </div>
+                  <div class="room__data">
+                    <span class="room__price">179 400 ₽/мес</span>
+                    <span class="room__value">2 этаж</span>
+                  </div>
+                </a>
+                <a class="room__card swiper-slide" id="room__309">
+                  <div class="room__img">
+                    <img src="/gorod-proj01/assets/floor-3-e8502381.jpg" alt="" class="test">
+                    <span class="room__img-square">89 м²</span>
+                    <span class="room__img-number">№309</span>
+                    </div>
+                  <div class="room__data">
+                    <span class="room__price">179 400 ₽/мес</span>
+                    <span class="room__value">2 этаж</span>
+                  </div>
+                </a>
+                <a class="room__card swiper-slide" id="room__309">
+                  <div class="room__img">
+                    <img src="/gorod-proj01/assets/floor-3-e8502381.jpg" alt="" class="test">
+                    <span class="room__img-square">89 м²</span>
+                    <span class="room__img-number">№309</span>
+                    </div>
+                  <div class="room__data">
+                    <span class="room__price">179 400 ₽/мес</span>
+                    <span class="room__value">2 этаж</span>
+                  </div>
+                </a>
+                <a class="room__card swiper-slide" id="room__309">
+                  <div class="room__img"> 
+                    <img src="/gorod-proj01/assets/floor-3-e8502381.jpg" alt="" class="test">
+                    <span class="room__img-square">89 м²</span>
+                    <span class="room__img-number">№309</span>
+                    </div>
+                  <div class="room__data">
+                    <span class="room__price">179 400 ₽/мес</span>
+                    <span class="room__value">2 этаж</span>
+                  </div>
+                </a>
+              </div>
+              <div class="swiper-button-next">
+                <svg width="48" height="46" viewBox="0 0 48 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M24.935 45L47 23M47 23L24.935 1M47 23L1 23" stroke="white" stroke-width="2" stroke-miterlimit="22.93"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+              <div class="swiper-button-prev">
+                <svg width="48" height="46" viewBox="0 0 48 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M23.065 45L1 23M1 23L23.065 1M1 23L47 23" stroke="white" stroke-width="2" stroke-miterlimit="22.93"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </section>        <section class="form section" id="form" data-section="form">
+          <div class="form__container">
+            <h2 class="form__title title">Связаться с нами</h2>
+            <div class="form__content">
+              <div class="form__info">
+                <a class="form__tel" href="tel:+79236466313">+7‒923‒646‒63‒13</a>
+                <a class="form__mail" href="mailto:info@gorod.one">info@gorod.one</a>
+                <span class="form__adress">Павловский тракт, 313Б</span>
+                <a href="https://yandex.ru/maps/197/barnaul/?indoorLevel=1&ll=83.634401%2C53.347027&mode=routes&rtext=~53.346976%2C83.634380&rtt=auto&ruri=~ymapsbm1%3A%2F%2Forg%3Foid%3D75375593200&z=17.64" target="_blank" class="form__pin">
+                  <svg width="14" height="21" viewBox="0 0 14 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <ellipse cx="7" cy="6.75" rx="7" ry="6.75" fill="black"/>
+                    <path d="M7 7.5V21" stroke="black"/>
+                  </svg>
+                  <div class="form__map">Смотреть на карте</div>
+                </a>
+              </div>
+              <div class="form__feedback feedback">
+                <form action="ajax/form.php" method="post" class="feedback__form js-form">
+                  <h3 class="form__subtitle">Записаться на встречу</h3>
+                  <input name="user_name" class="feedback__name" type="text" placeholder="Имя">
+                  <input data-mask="phone" name="user_phone" class="feedback__tel" type="tel" placeholder="Телефон">
+                  <div class="feedback__btn">
+                    <button type="submit" class="feedback__submit btn--fill btn-reset js-form-submit">
+                      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.4065 20.4444L21 10.7222M21 10.7222L11.4065 1M21 10.7222H1" stroke="white" stroke-width="1.5" stroke-miterlimit="22.93" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                      Отправить
+                    </button>
+                    <p class="feedback__info">
+                      Нажимая “отправить” вы&nbsp;даёте согласие на&nbsp;обработку своих персональных данных согласно <a href="/public/pdf/Политика_в_отношении_обработки_персональных_данных_СИБГРУПП.pdf" class="solid" target="_blank">политике&nbsp;конфиденциальности</a> 
+                    </p>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>      </main>
+      <footer class="footer" id="footer" data-section="footer">
+        <div class="footer__container">
+          <div class="footer__info social">
+            <a href="#" class="footer__logo">
+              <img src="/gorod-proj01/assets/logo-footer-63ba6870.svg" alt="">
+            </a>
+            <ul class="social__list">
+              <li class="social__item ig">
+                <a href="https://www.instagram.com/gorod.one/" class="social__link">
+                  <img src="/gorod-proj01/assets/ig-69e3a726.svg" alt="">
+                </a>
+              </li>
+              <li class="social__item vk">
+                <a href="https://vk.com/goroddc" class="social__link">
+                  <img src="/gorod-proj01/assets/vk-968319fa.svg" alt="">
+                </a>
+              </li>
+              <li class="social__item tg">
+                <a href="#" class="social__link">
+                  <img src="/gorod-proj01/assets/tg-38eab6c5.svg" alt="">
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer__box">
+            <div class="footer__text">
+              <p class="footer__descr">Вся информация на&nbsp;сайте носит информационный характер и&nbsp;не&nbsp;является публичной офертой</p>
+              <a href="/public/pdf/Политика_в_отношении_обработки_персональных_данных_СИБГРУПП.pdf" target="_blank" class="footer__link solid">Политика конфиденциальности</a>
+              
+            </div>
+            <div class="footer__confidency">
+              <span>©2023</span>
+              <span class="country">Сайт от <a class="solid country__link" href="https://studio.country/">Country</a></span>
+            </div>
+          </div>
+        </div>
+      </footer>      <div class="modal" id="modal">
+        <div class="modal__body">
+          <div class="modal__content">
+            <section class="modal__container">
+              <div class="modal__close">
+                <span></span>
+              </div>
+              <div class="modal__office">
+                <span class="modal__title">офис №<span class="attrnumber"></span></span>
+                <div class="modal__info">
+                  <div class="modal__img">
+                    <img class="attrimg" src="/gorod-proj01/assets/office-307-5327b770.jpg" width="764" height="550" alt="">
+                  </div>
+                  <div class="modal__descr">
+                    <div class="modal__about">
+                      <span class="modal__price"><span class="attrprice"></span>₽/мес</span>
+                      <span class="modal__square"><span class="attrsquare"></span>м²</span>
+                      <span class="modal__floor"><span class="attrflat"></span>этаж</span>
+                    </div>
+                    <p class="modal__text">Просторное офисное помещение свободного назначения, гибкая разграниченность пространства под ваши нужды. Создайте комфортные рабочие зоны, переговорные комнаты или отдельные кабинеты.</p>
+                    <a href="#lease" class="btn--stroke  modal__link">
+                      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.4065 20.4444L21 10.7222M21 10.7222L11.4065 1M21 10.7222H1" stroke="white" stroke-width="1.5" stroke-miterlimit="22.93" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                      Арендовать
+                      </a>
+                  </div>
+                </div>
+                <div class="modal__plan">
+                    <div class="plan__box">
+                    <div class="c1 modal__plan-content">
+                      <svg class="genplan" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 1920 1080"  preserveAspectRatio="xMidYMid">
+                        <a class="genplan__link  free"
+                          data-flat='{"number": 8, "price": "179 400", "square": 46.26 , "flat": 1, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                          <polygon data-flat="Комната №8" points="898.4,107 610.9,107 610.9,544.9 898.4,544.9 898.4,357.7">
+                          </polygon>
+                        </a>
+                        <a class="genplan__link free"
+                          data-flat='{"number": 9, "price": "179 400", "square": 46.26 , "flat": 1, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                          <polygon data-flat="Комната №9"
+                            points="906,107 906,544.9 1102.7,544.9 1102.7,608.7 1319.4,608.7 1319.4,771.2 1494.8,771.2 1494.8,107  912.6,107">
+                          </polygon>
+                        </a>
+                        <a class="genplan__link free"
+                          data-flat='{"number": 3, "price": "179 400", "square": 46.26 , "flat": 1, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                          <polygon data-flat="Комната №3" points="598.2,918.5 598.2,990.5 458.8,990.5 458.8,918.5 519.5,918.5">
+                          </polygon>
+                        </a>
+                        <a class="genplan__link sales"
+                          data-flat='{"number": 6, "price": "179 400", "square": 46.26 , "flat": 1, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                          <polygon data-flat="Комната №6" points="552.6,627.2 552.6,717.1 600.7,717.1 600.7,633.4 600.7,627.2">
+                          </polygon>
+                        </a>
+                        <a class="genplan__link free"
+                          data-flat='{"number": 5, "price": "179 400", "square": 46.26 , "flat": 1, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                          <polygon data-flat="Комната №5"
+                            points="549.9,627.2 549.9,717.1 531.4,717.1 531.4,771.2 460.1,771.2 460.1,627.2 536.7,627.2">
+                          </polygon>
+                        </a>
+                        <a class="genplan__link sales"
+                          data-flat='{"number": 2, "price": "179 400", "square": 46.26 , "flat": 1, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                          <polygon data-flat="Комната №2"
+                            points="1047.8,990.5 1047.8,599.9 655.4,599.9 655.4,875.1 612.2,918.3 603.9,918.3 603.9,990.5">
+                          </polygon>
+                        </a>
+                        <a class="genplan__link free"
+                          data-flat='{"number": 4, "price": "179 400", "square": 46.26 , "flat": 1, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                          <polygon data-flat="Комната №4" points="542.7,775.8 542.7,857.7 458.8,857.7 458.8,775.8 500.7,775.8">
+                          </polygon>
+                        </a>
+                        <a class="genplan__link sales"
+                          data-flat='{"number": 7, "price": "179 400", "square": 46.26 , "flat": 1, "imgplan": "/public/img/floor/floor-2.jpg"}'>
+                          <polygon data-flat="Комната №7" points="600.7,554.1 552.8,554.1 458.8,554.1 458.8,621 600.7,621">
+                          </polygon>
+                        </a>
+                        <image xlink:href="/gorod-proj01/assets/plan-1-330af7f2.png"  width="1920" height="1080"></image>
+                      </svg>
+                    </div>
+                    <div class="c2 modal__plan-content">
+                      <svg class="genplan" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 1920 1080"  preserveAspectRatio="xMidYMid"
+                      y="0px" width="100%" height="100%" preserveAspectRatio="xMidYMid">
+                      <image xlink:href="/gorod-proj01/assets/plan-2-8d794def.png" width="1920" height="1080"></image>
+                      <a href="#" class="free" data-id="8">
+                        <polygon points="1613.4,640.5 1613.4,608.8 1664.3,608.8 1664.3,635.2 1755,635.2 1755,869.2 1642.3,869.2 1642.3,688.1 1613.4,688.1"></polygon>
+                      </a>
+                      <a href="#" class="free">
+                        <polygon points="194.3,619.8 240.5,619.8 240.5,608.8 303.1,608.8 303.1,868.2 194.3,868.2"></polygon>
+                      </a>
+                      <a href="#" class="sales" >
+                        <polygon points="408.8,868.2 311,868.2 311,608.8 359.9,608.8 408.8,608.8"></polygon>
+                      </a>
+                      <a href="#" class="free">
+                        <polygon points="520.6,868.2 417.6,868.2 417.6,608.8 469.1,608.8 520.6,608.8 "></polygon>
+                      </a>
+                      <a href="#" class="sales">
+                        <polygon points="632.9,868.2 529.9,868.2 529.9,608.8 581.4,608.8 632.9,608.8"></polygon>
+                      </a>
+                      <a href="#" class="sales">
+                        <polygon points="745.7,868.2 637.8,868.2 637.8,608.8 691.7,608.8 745.7,608.8"></polygon>
+                      </a>
+                      <a href="#" class="free">
+                        <polygon points="858.4,868.2 750.5,868.2 750.5,608.8 804.5,608.8 858.4,608.8"></polygon>
+                      </a>
+                      <a href="#" class="sales">
+                        <polygon points="1087,868.2 979.1,868.2 979.1,684.8 1033,684.8 1087,684.8"></polygon>
+                      </a>
+                      <a href="#" class="free">
+                        <polygon points="1527.5,417.7 1405.5,417.7 1405.5,211.2 1466.5,211.2 1527.5,211.2"></polygon>
+                      </a>
+                      <a href="#" class="free">
+                        <polygon points="1527.5,869.2 1425.3,869.2 1425.3,683.8 1476.4,683.8 1527.5,683.8"></polygon>
+                      </a>
+                      <a href="#" class="free">
+                        <polygon points="1425.3,869.2 1323.1,869.2 1323.1,771.7 1310.1,765.9 1310.1,684.8 1374.2,684.8 1425.3,684.8"></polygon>
+                      </a>
+                      <a href="#" class="sales">
+                        <polygon points="1752.8,467.7 1622.3,467.7 1619.4,417.7 1538.3,417.7 1538.3,211.2 1645.5,211.2 1752.8,211.2"></polygon>
+                      </a>
+                      <a href="#" class="free">
+                        <polygon points="1752.8,632.7 1668.4,630.7 1668.6,603.1 1617.4,603.1 1617.4,468.8 1685.1,468.8 1752.8,468.8"></polygon>
+                      </a>
+                      <a href="#" class="sales">
+                        <polygon points="1308.9,466.1 754.7,466.1 753.9,537.1 195,537.1 195,211.2 751.9,211.2 1308.9,211.2"></polygon>
+                      </a>
+                      <a href="#" class="sales">
+                        <polygon points="972,868.2 864.1,868.2 864.1,608.8 918.1,608.8 1003,608.8 1003,680.7 972,680.6"></polygon>
+                      </a>
+                      <a href="#" class="free">
+                        <polygon points="1640.5,869.2 1538.3,869.2 1538.3,683.8 1589.4,683.8 1640.5,683.8"></polygon>
+                      </a>
+                      </svg>
+                    </div>
+                    <div class="c3 modal__plan-content">
+                      <svg class="genplan" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px"
+                        y="0px" width="100%" height="100%" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid" y="0px"
+                        preserveAspectRatio="xMidYMid">
+                        <a class="modal__plan-noactive" >
+                          <polygon data-flat="Комната №308"
+                            points="524,472.7 417.7,472.3 417.7,211.4 630.4,211.4 630.4,315.1 630.4,535.1 524,535.1">
+                          </polygon>
+                        </a>
+                        <a class="modal__plan-noactive">
+                          <polygon data-flat="Комната №309" points="639.3,211.4 639.3,536.2 746.3,536.2 746.3,211.4 692.8,211.4">
+                          </polygon>
+                        </a>
+                        <a class="modal__plan-noactive">
+                          <polygon data-flat="Комната №310" points="750.7,211.4 750.7,536.2 857.7,536.2 857.7,211.4 804.2,211.4">
+                          </polygon>
+                        </a>
+                        <a class="modal__plan-noactive">
+                          <polygon data-flat="Комната №311"
+                            points="865.2,211.4 865.2,536.2 1004,536.2 1004,465.6 978.5,465.4 978.5,211.4 921.9,211.4">
+                          </polygon>
+                        </a>
+                        <a class="modal__plan-noactive">
+                          <polygon data-flat="Комната №312"
+                            points="1307.9,211.4 1307.9,398.8 1088.1,398.8 1088.1,456.2 989.1,456.2 989.1,211.4">
+                          </polygon>
+                        </a>
+                        <a class="modal__plan-noactive">
+                          <polygon data-flat="Комната №313" points="1318,211.4 1318,329.2 1318,456.2 1414.5,456.2 1414.5,211.4">
+                          </polygon>
+                        </a>
+                        <a class="modal__plan-noactive">
+                          <polygon data-flat="Комната №314"
+                            points="1529.8,211.4 1529.8,542.4 1376.1,542.4 1376.1,465.3 1424.1,465.3 1424.1,211.4">
+                          </polygon>
+                        </a>
+                        <a class="modal__plan-noactive">
+                          <polygon data-flat="Комната №316" points="1754,869.5 1645.9,869.5 1645.9,551.2 1718.3,551.2 1754,551.2">
+                          </polygon>
+                        </a>
+                        <a class="modal__plan-noactive">
+                          <polygon data-flat="Комната №317" points="1636.5,869.5 1636.5,621.2 1577.4,621.2 1537.8,621.2 1537.8,869.5">
+                          </polygon>
+                        </a>
+                        <a class="modal__plan-noactive">
+                          <polygon data-flat="Комната №318"
+                            points="1526.8,621.2 1382.8,621.2 1382.8,685 1428.5,685 1428.5,869.5 1529.8,869.5 1529.8,621.2">
+                          </polygon>
+                        </a>
+                        <a class="modal__plan-noactive">
+                          <polygon data-flat="Комната №319"
+                            points="1310.8,690.5 1418.2,690.5 1418.2,869.5 1322.9,869.5 1322.9,763 1310.8,763">
+                          </polygon>
+                        </a>
+                        <a class="modal__plan-noactive">
+                          <polygon data-flat="Комната №301" points="981.6,690.5 1085.1,690.5 1085.1,869.5 981.6,869.5 981.6,692.5">
+                          </polygon>
+                        </a>
+                        <a class="modal__plan-noactive">
+                          <polygon data-flat="Комната №302" points="1001,614.6 1001,679.3 969.7,679.3 969.7,869.5 865.2,869.5 865.2,614.6">
+                          </polygon>
+                        </a>
+                        <a class="modal__plan-noactive">
+                          <polygon data-flat="Комната №305" points="630.4,614.6 630.4,869.5 417.7,869.5 417.7,614.6 554.4,614.6">
+                          </polygon>
+                        </a>
+                        <a class="modal__plan-noactive">
+                          <polygon data-flat="Комната №306" points="407.1,614.6 407.1,869.5 194.4,869.5 194.4,614.6 331.2,614.6">
+                          </polygon>
+                        </a>
+                        <a class="modal__plan-noactive" data-id="307">
+                          <polygon data-flat="Комната №307" points="407.1,211.4 407.1,535.1 194.4,535.1 194.4,211.4 331.2,211.4">
+                          </polygon>
+                        </a>
+                        <a class="modal__plan-noactive">
+                          <polygon data-flat="Комната №303" points="753,614.6 753,869.5 857.7,869.5 857.7,735.2 857.7,614.6">
+                          </polygon>
+                        </a>
+                        <a class="modal__plan-noactive">
+                          <polygon data-flat="Комната №304" points="639.3,614.6 639.3,869.5 746.3,869.5 746.3,751.4 746.3,614.6">
+                          </polygon>
+                        </a>
+                        <a class="modal__plan-noactive">
+                          <polygon data-flat="Комната №315" points="1537.8,211.4 1537.8,542.4 1754,542.4 1754,376.9 1754,211.4">
+                          </polygon>
+                        </a>
+                        <image xlink:href="/gorod-proj01/assets/plan-3-5053cabe.png" width="1920" height="1080"></image>
+                      </svg>
+                    </div>
+                    <div class="c5 modal__plan-content">
+                      <svg class="genplan" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 1920 1080"  preserveAspectRatio="xMidYMid"
+                      y="0px" width="100%" height="100%" preserveAspectRatio="xMidYMid">
+                      <image xlink:href="/gorod-proj01/assets/plan-5-b88d778c.png" width="1920" height="1080"></image>
+                      </svg>
+                    </div>
+                    </div>
+                </div>
+                <div class="modal__lease lease" id="lease">
+                <h2 class="lease__title ">Арендовать этот офис</h2>
+                <form class="lease__form js-form" action="/test/1.php" method="post">
+                  <input name="user_name" class="lease__name" type="text" placeholder="Имя">
+                  <input data-mask="phone" name="user_phone" class="lease__tel" type="tel" placeholder="Телефон">
+                  <div class="lease__btn">
+                    <button type="submit" class="lease__submit btn--fill btn-reset js-form-submit">
+                      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.4065 20.4444L21 10.7222M21 10.7222L11.4065 1M21 10.7222H1" stroke="white" stroke-width="1.5" stroke-miterlimit="22.93" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                      Отправить
+                    </button>
+                    <p class="feedback__info">
+                      Нажимая “отправить” вы&nbsp;даёте согласие на&nbsp;обработку своих персональных данных согласно <a class="solid" href="#">политике конфиденциальности</a> 
+                    </p>
+                  </div>
+                </form>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>      <section class="sykes">
+      <div class="sykes__body">
+        <div class="sykes__container">
+         <div class="sykes__close">
+          <span></span>
+         </div>
+         <div class="sykes__box">
+          <h2 class="sykes__title">Спасибо</h2>
+          <p class="sykes__text">
+           Ваша заявка успешно отправлена. <br>
+           Наш менеджер свяжется с вами в ближайшее время.
+          </p>
+         </div>
+        </div>
+      </div>
+      </section>    </div>
+    
+  </body>
+</html>
