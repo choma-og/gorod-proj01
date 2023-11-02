@@ -15,12 +15,12 @@
         </a>
       </div>
       <div class="form__feedback feedback">
-        <form class="feedback__form" action="" method="post">
+        <form action="ajax/form.php" method="post" class="feedback__form js-form">
           <h3 class="form__subtitle">Записаться на встречу</h3>
-          <input class="feedback__name" type="text" placeholder="Имя">
-          <input class="feedback__tel" type="tel" placeholder="Телефон">
+          <input name="user_name" class="feedback__name" type="text" placeholder="Имя">
+          <input data-mask="phone" name="user_phone" class="feedback__tel" type="tel" placeholder="Телефон">
           <div class="feedback__btn">
-            <button type="submit" class="feedback__submit btn--fill btn-reset">
+            <button type="submit" class="feedback__submit btn--fill btn-reset js-form-submit">
               <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M11.4065 20.4444L21 10.7222M21 10.7222L11.4065 1M21 10.7222H1" stroke="white" stroke-width="1.5" stroke-miterlimit="22.93" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>

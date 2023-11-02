@@ -4,6 +4,9 @@ import 'swiper/css/pagination';
 import 'swiper/swiper-bundle.css';
 import '@/styles/style.scss';
 import SimpleParallax from 'simple-parallax-js';
+import axios from 'axios';
+// import IMask from 'imask';
+import Inputmask from 'inputmask';
 
 var image = document.getElementsByClassName('thumbnail');
 new SimpleParallax(image);
@@ -89,11 +92,10 @@ const attrSquare = document.querySelector(".attrsquare");
 const attrFlat = document.querySelector(".attrflat");
 const attrNumber = document.querySelector(".attrnumber");
 const attrImg = document.querySelector(".attrimg");
-const free = document.querySelector(".free");
 const modalContent = document.querySelector(".modal__content");
 let genplanImg;
 
-const modalClose = document.querySelector(".modal__close");
+
 
 
 const closeModalGenplanImg = () => {
@@ -280,19 +282,17 @@ var swiperRoom = new Swiper(".room__swiper", {
 // const modalBody = document.querySelector(".modal__body");
 // const slides = document.querySelectorAll('.room__card');
 // const modalContent = document.querySelector(".modal__content");
-// const modalClose = document.querySelector(".modal__close");
+const modalClose = document.querySelector(".modal__close");
 const slides = document.querySelectorAll('.room__card');
 
 slides.forEach(slide => {
   slide.addEventListener('click', () => {
-    const slideId = slide.id;
-    console.log(slideId);
     document.body.classList.add("_lock");
     modalBody.classList.add("_active");
     modalContent.classList.add("_active");
-    modalOffice.classList.remove("_none");
+    // modalOffice.classList.remove("_none");
     modalContainer.classList.remove("_active");
-    sykes.classList.remove("_active");
+    // sykes.classList.remove("_active");
 })
 });
 
@@ -308,9 +308,9 @@ slides.forEach(slide => {
       document.body.classList.remove("_lock");
       modalBody.classList.remove("_active");
       modalContent.classList.remove("_active");
-      modalOffice.classList.remove("_none");
+      // modalOffice.classList.remove("_none");
       modalContainer.classList.remove("_active");
-      sykes.classList.remove("_active");
+      // sykes.classList.remove("_active");
     }
   })
 
@@ -318,24 +318,114 @@ slides.forEach(slide => {
     document.body.classList.remove("_lock");
     modalBody.classList.remove("_active");
     modalContent.classList.remove("_active");
-    modalOffice.classList.remove("_none");
+    // modalOffice.classList.remove("_none");
     modalContainer.classList.remove("_active");
-    sykes.classList.remove("_active");
+    // sykes.classList.remove("_active");
     
     closeModalGenplanImg();
   })
 
 /*=============== SHOW SYKES ===============*/
-const sykes = document.querySelector('.sykes');
-const sykesBtn = document.querySelector('.lease__submit');
-const modalOffice = document.querySelector(".modal__office");
-const modalContainer = document.querySelector(".modal__container");
-// const modalLease = document.querySelector(".modal__lease");
-// const modalPlan = document.querySelector(".modal__plan");
-if (sykesBtn) {
-  sykesBtn.addEventListener("click", e => {
-    modalOffice.classList.add("_none");
-    sykes.classList.add("_active");
-    modalContainer.classList.add("_active");
-  })
+// const sykes = document.querySelector('.sykes');
+// const sykesBtn = document.querySelector('.lease__submit');
+// const modalOffice = document.querySelector(".modal__office");
+// const modalContainer = document.querySelector(".modal__container");
+// // const modalLease = document.querySelector(".modal__lease");
+// // const modalPlan = document.querySelector(".modal__plan");
+// if (sykesBtn) {
+//   sykesBtn.addEventListener("click", e => {
+//     // modalOffice.classList.add("_none");
+//     // sykes.classList.add("_active");
+//     modalContainer.classList.add("_active");
+//   })
+// }
+
+
+
+const validate = (input) => {
+  const dataType = "";
+  let res;
+  switch(dataType) {
+      case "phone": 
+      res = validatePhone(input.value)
+      break;
+      case "text": 
+      res = validateText(input.value)
+      break;
+  }
+
+  return res;
 }
+
+/*=============== AXIOS ===============*/ 
+let forms = document.querySelectorAll('.js-form');
+const modalSykesBody = document.querySelector('.sykes__body');
+const sykesClose = document.querySelector('.sykes__close');
+forms.forEach((form) => {
+  let formButton = form.querySelector(".js-form-submit");
+
+  formButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  formButton.disabled = true;
+  const inputs = form.querySelectorAll("input");
+  const method = form.method;
+  const action = form.action;
+  let formData = [];
+
+  inputs.forEach(input => {
+
+
+    if(validate(input)) {
+
+      formData.push({
+        name: input.name,
+        value: input.value,
+      })  
+    } else {
+
+    }
+  })
+
+    axios({
+        method,
+        url: action,
+        data: formData,
+    }).then((response) => {
+        console.log("success");
+        formButton.disabled = false;
+    }).catch((error) => {
+        console.error(error)
+        formButton.disabled = false;
+        modalSykesBody.classList.add("_active");
+        document.body.classList.add("_lock");
+      });
+  
+})
+sykesClose.addEventListener('click' , () => {
+  modalSykesBody.classList.remove("_active");
+  document.body.classList.remove("_lock");
+  console.log("click")
+}) 
+})
+
+// const sykesClose = document.querySelector('sykes__close');
+// sykesClose.addEventListener('click' , () => {
+//   modalSykesBody.classList.remove("_active");
+//   document.body.classList.remove("_lock");
+// }) 
+
+/*=============== MASK FORM TEL ===============*/ 
+const phones = document.querySelectorAll('[data-mask="phone"]');
+let im = new Inputmask('+7 (999) 999-99-99');
+im.mask(phones);
+// if(!phones) {
+//   throw new Error("Invalid data property")
+// }
+// const phoneOptions = { // создаем объект параметров
+//   mask: '+{7} (000) 000-00-00' // задаем единственный параметр mask
+// }
+// phones.forEach(el => { // для каждого найденного поля с атрибутом [data-mask="phone"]
+//   IMask(el, phoneOptions) // инициализируем плагин с установленными выше параметрами
+// })
+
+

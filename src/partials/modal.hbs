@@ -251,16 +251,16 @@
           </div>
           <div class="modal__lease lease" id="lease">
           <h2 class="lease__title ">Арендовать этот офис</h2>
-          <form class="lease__form" action="" method="post">
-            <input class="lease__name" type="text" placeholder="Имя">
-            <input class="lease__tel" type="tel" placeholder="Телефон">
+          <form class="lease__form js-form" action="/test/1.php" method="post">
+            <input name="user_name" class="lease__name" type="text" placeholder="Имя">
+            <input data-mask="phone" name="user_phone" class="lease__tel" type="tel" placeholder="Телефон">
             <div class="lease__btn">
-              <a class="lease__submit btn--fill btn-reset">
+              <button type="submit" class="lease__submit btn--fill btn-reset js-form-submit">
                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M11.4065 20.4444L21 10.7222M21 10.7222L11.4065 1M21 10.7222H1" stroke="white" stroke-width="1.5" stroke-miterlimit="22.93" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
                 Отправить
-              </a>
+              </button>
               <p class="feedback__info">
                 Нажимая “отправить” вы&nbsp;даёте согласие на&nbsp;обработку своих персональных данных согласно <a class="solid" href="#">политике конфиденциальности</a> 
               </p>
@@ -268,12 +268,12 @@
           </form>
           </div>
         </div>
-        <div class="sykes">
+        {{!-- <div class="sykes">
           <div class="sykes__container">
             <h2 class="sykes__title">Спасибо!</h2>
             <p class="sykes__text">Ваша заявка успешно отправлена. <br> Наш менеджер свяжется с вами в ближайшее время.</p>
           </div>
-        </div>
+        </div> --}}
       </section>
     </div>
   </div>

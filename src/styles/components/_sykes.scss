@@ -1,0 +1,80 @@
+.sykes { 
+
+ &__body {
+ position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: var(--color-text);
+  opacity: 0;
+  visibility: hidden;
+  height: 100vh;
+  width: 100%;
+  &._active {
+   opacity: 1;
+   visibility: visible;
+  }
+ }
+ &__close {
+  position: fixed;
+  cursor: pointer;
+  top: 40px;
+  right: 40px;
+  background-color: var(--color-light);
+  width: 58px;
+  height: 50px;
+  border-radius: 100%;
+
+  span,
+  &::after {
+   border-radius: 3px;
+   left: 13px;
+   position: absolute;
+   height: 2px;
+   width: 33px;
+   transition: all .3s ease 0s;
+   background-color: black;
+   transform: translateX(0);
+   transition: all .3s ease 0s;
+  }
+
+  &::after {
+   content: "";
+  }
+
+  span {
+   top: 25px;
+   transform: rotate(-45deg) translate(0px, -50%);
+  }
+
+  &::after {
+   top: 23px;
+   transform: rotate(45deg) translate(0px, 50%);
+  }
+ }
+ &__container {
+  display: flex;
+  min-height: 100%;
+  align-items: center;
+  justify-content: center;
+ }
+
+ &__title {
+  color: var(--color-light);
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 130%;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+ }
+
+ &__text {
+  color: var(--color-light);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  opacity: 0.9;
+  /* 25.2px */
+ }
+}
