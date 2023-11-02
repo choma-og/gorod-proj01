@@ -1,7 +1,11 @@
 .modal {
+  overflow-x: hidden;
   &__container {
     padding-top: 80px;
     height: 100%;
+    @media (max-width:470px) {
+      padding-top: 80px;
+    }
     &._active {
       padding-top: 0px;
       padding-bottom: 0px;
@@ -12,7 +16,8 @@
   }
   &__body {
     color: var(--color-light);
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
     position: fixed;
     width: 100%;
     height: 100%;
@@ -42,6 +47,12 @@
       display: none;
     }
     padding-bottom: 200px;
+    @media (max-width:1100px) {
+      padding-bottom: 100px;
+    }
+    @media (max-width:600px) {
+      padding-bottom: 60px;
+    }
   }
   &__close {
     position: fixed;
@@ -52,7 +63,10 @@
     width: 58px;
     height: 50px;
     border-radius: 100%;
-
+    @media (max-width:600px){
+      top: 20px;
+      right: 20px;
+    }
     span,
     &::after{
       border-radius: 3px;
@@ -90,15 +104,29 @@
     line-height: normal;
     text-transform: uppercase;
     margin-bottom: 60px;
+    @media (max-width:600px) {
+      font-size: 50px;
+      margin-bottom: 40px;
+    }
+    @media (max-width:470px) {
+      font-size: 30px;
+    }
   }
   &__info {
-    &._none {
-      display: none;
-    }
     display: flex;
     align-items: center;
     gap: 80px;
     margin-bottom: 80px;
+    @media (max-width:1200px) {
+      gap: 50px;
+    }
+    @media (max-width:1050px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    &._none {
+      display: none;
+    }
   }
   &__descr {
     display: flex;
@@ -120,6 +148,12 @@
     span {
       font-size: 72px;
       font-weight: 700;
+      @media (max-width: 1200px) {
+        font-size: 50px;
+      }
+      @media (max-width:470px) {
+        font-size: 30px;
+      }
     }
   }
   &__square {
@@ -133,6 +167,12 @@
     span {
       font-size: 36px;
       font-weight: 700;
+      @media (max-width: 1200px) {
+          font-size: 30px;
+      }
+      @media (max-width:470px) {
+        font-size: 24px;
+      }
     }
   }
   &__floor {
@@ -142,15 +182,52 @@
     color: var(--color-light);
     font-size: 28px;
     line-height: normal;
+    @media (max-width:470px) {
+      font-size: 18px;
+    }
     span {
       font-size: 36px;
       font-weight: 700;
+      @media (max-width: 1200px) {
+          font-size: 30px;
+      }
+      @media (max-width:470px) {
+        font-size: 24px;
+      }
     }
   }
   &__text {
-    max-width: 440px;
-    opacity: 0.9;
-    line-height: 140%; /* 25.2px */
+    color: var(--white, #FFF);
+    font-family: Formular;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+    opacity: 0.7;
+    &-box {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+      @media (max-width:600px) {
+        flex-direction: column;
+      }
+    }
+    &-descr {
+      color: var(--white, #FFF);
+      font-family: Formular;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 140%;
+      opacity: 0.9;
+      max-width: 260px;
+      @media (max-width:470px) {
+        font-size: 14px;
+      }
+      /* 25.2px */
+    }
+
   }
   &__plan {
     &._none {
@@ -195,6 +272,27 @@
       }
     }
   }
+  &__img {
+    @media (max-width:1280px) {
+      width: 650px;
+    }
+    @media (max-width:700px) {
+      width: auto;
+    }
+    // @media (max-width:1050px) {
+    //   width: auto;
+    // }
+    img {
+      max-width: 100%;
+
+      @media (max-width:650px) {
+        height: auto;
+      }
+      @media (max-width:1050px) {
+        height: 400px;
+      }
+    }
+  }
 }
 a.free.currentflat polygon {
   fill: red;
@@ -202,7 +300,16 @@ a.free.currentflat polygon {
 .lease {
   padding-top: 100px;
   display: flex;
-  gap: 115px;
+  gap: 20px;
+  justify-content: space-between;
+  @media (max-width:1050px) {
+    flex-direction: column;
+    gap: 40px;
+  }
+  @media (max-width:640px) {
+    flex-direction: column;
+    gap: 20px;
+  }
   &._none {
     display: none;
   }
@@ -211,12 +318,31 @@ a.free.currentflat polygon {
     color: var(--color-light);
     font-size: 48px;
     line-height: normal;
+    @media (max-width:1200px) {
+      font-size: 35px;
+    }
+    @media (max-width: 640px) {
+      font-size: 20px;
+    }
   }
   &__form {
     width: 665px;
     display: flex;
     flex-direction: column;
     row-gap: 50px;
+    @media (max-width:1400px) {
+      width: 560px;
+    }
+    @media (max-width:1050px) {
+      width: 90%;
+    }
+    @media (max-width:640px) {
+      row-gap: 30px;
+      width: 100%;
+    }
+    // @media (max-width:1400px) {
+    //   width: 100%;
+    // }
   }
   &__name {
     font-family: Formular;
@@ -230,6 +356,10 @@ a.free.currentflat polygon {
     background-color: transparent;
     color: rgba(255, 255, 255, 0.6);
     border-bottom: 1px solid var(--color-light);
+    width: 100%;
+    @media (max-width:640px) {
+      font-size: 16px;
+    }
   }
   &__tel {
     font-family: Formular;
@@ -243,11 +373,20 @@ a.free.currentflat polygon {
     background-color: transparent;
     color: rgba(255, 255, 255, 0.6);
     border-bottom: 1px solid var(--color-light);
+    width: 100%;
+    @media (max-width:640px) {
+        font-size: 16px;
+      }
   }
   &__btn {
     display: flex;
     gap: 30px;
     align-items: center;
+    @media (max-width:640px) {
+      flex-direction: column;
+      align-items: flex-start;
+      row-gap: 24px;
+    }
   }
 }
 .lease__btn .feedback__info {

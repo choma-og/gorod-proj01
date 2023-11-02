@@ -365,13 +365,69 @@ image {
 }
 .swiper {
   position: unset;
-  
 }
 .genplan {
   width: 100%;
   height: auto;
 }
-
+.validate__form-error {
+  padding-top: 5px;
+  color: #CF1E1E;
+  font-family: Formular;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.js-error {
+  display: none;
+}
+.js-error._active {
+  display: block;
+}
+.js-error-text--null {
+  display: none;
+}
+.js-error-text--null._active {
+  display: block;
+}
+.wrapper__name {
+  position: relative;
+}
+.wrapper__phone {
+  position: relative;
+}
+.js-error-name {
+  position: absolute;
+  bottom: 33px;
+  left: 0;
+  @media (max-width:640px) {
+    bottom: 10px;
+  }
+}
+.js-error-phone {
+  position: absolute;
+  bottom: 33px;
+  left: 0;
+  @media (max-width:640px) {
+    bottom: 10px;
+  }
+}
+.js-error-modal-name {
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+}
+.js-error-modal-phone {
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+}
+.js-error-text--null {
+  position: absolute;
+  bottom: 33px;
+  left: 0;
+}
 /*! locomotive-scroll v4.1.3 | MIT License | https://github.com/locomotivemtl/locomotive-scroll */
 html.has-scroll-smooth {
   overflow: hidden; }

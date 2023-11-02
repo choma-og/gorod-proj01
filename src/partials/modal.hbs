@@ -17,7 +17,13 @@
                 <span class="modal__square"><span class="attrsquare"></span>м²</span>
                 <span class="modal__floor"><span class="attrflat"></span>этаж</span>
               </div>
-              <p class="modal__text">Просторное офисное помещение свободного назначения, гибкая разграниченность пространства под ваши нужды. Создайте комфортные рабочие зоны, переговорные комнаты или отдельные кабинеты.</p>
+              <div class="modal__text-box">
+                <p class="modal__text">Арендатор: </p>
+                <p class="modal__text-descr">
+                  Ногтевая студия Кленова
+                  Владислава “4 пальца”
+                </p>
+              </div>
               <a href="#lease" class="btn--stroke  modal__link">
                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M11.4065 20.4444L21 10.7222M21 10.7222L11.4065 1M21 10.7222H1" stroke="white" stroke-width="1.5" stroke-miterlimit="22.93" stroke-linecap="round" stroke-linejoin="round"/>
@@ -250,10 +256,26 @@
               </div>
           </div>
           <div class="modal__lease lease" id="lease">
-          <h2 class="lease__title ">Арендовать этот офис</h2>
+          <h2 class="lease__title ">Арендовать помещение</h2>
           <form class="lease__form js-form" action="/test/1.php" method="post">
-            <input name="user_name" class="lease__name" type="text" placeholder="Имя">
-            <input data-mask="phone" name="user_phone" class="lease__tel" type="tel" placeholder="Телефон">
+            <div class="wrapper__box wrapper__name">
+              <input name="user_name" class="lease__name" type="text" data-type="text" placeholder="Имя">
+              <div class="validate__form-error validate__form-error--name js-error js-error-modal-name">
+                <span>Пожалуйста, перепроверьте данные</span>
+              </div>
+              {{!-- <div class="validate__form-error js-error-text--null">
+                <span>Пожалуйста, заполните поле</span>
+              </div> --}}
+            </div>
+            <div class="wrapper__box wrapper__phone">
+              <input data-mask="phone" name="user_phone" class="lease__tel" type="tel" data-type="phone" placeholder="Телефон">
+                <div class="validate__form-error validate__form-error--phone js-error js-error-modal-phone">
+                  <span>Пожалуйста, перепроверьте данные</span>
+                </div>
+                {{!-- <div class="validate__form-error js-error-text--null">
+                  <span>Пожалуйста, заполните поле</span>
+                </div> --}}
+            </div>
             <div class="lease__btn">
               <button type="submit" class="lease__submit btn--fill btn-reset js-form-submit">
                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">

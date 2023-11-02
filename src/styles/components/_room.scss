@@ -83,9 +83,9 @@
         bottom: 5px;
         left: 5px;
         color: var(--color-light);
-        font-size: 96px;
+        font-size: 80px;
         @media (max-width:640px) {
-          font-size: 84px;
+          font-size: 60px;
         }
       }
     
@@ -95,6 +95,9 @@
         right: 5px;
         color: var(--color-light);
         font-size: 24px;
+        @media (max-width:640px) {
+            font-size: 20px;
+          }
   }
 }
 &__data {

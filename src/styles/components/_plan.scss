@@ -5,6 +5,10 @@
   position: relative;
   padding-top: 160px;
   padding-bottom: 75px;
+  @media (max-width:800px) {
+    padding-top: 85px;
+    padding-bottom: 0;
+  }
  }
  &__compas {
   position: absolute;
@@ -14,12 +18,19 @@
  &__title {
   margin-bottom: 195px;
   color: var(--color-light);
+  @media (max-width:850px) {
+    margin-bottom: 85px;
+  }
  }
 
  &__floor {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @media (max-width:850px) {
+    flex-direction: column;
+    gap: 50px;
+  }
  }
  &__content {
 
@@ -41,6 +52,9 @@
   cursor: pointer;
   position: relative;
   transition: all 0.3s ease-out 0s;
+  @media (max-width:550px) {
+    font-size: 16px;
+  }
   &::after {
     content: "";
     position: absolute;
@@ -68,6 +82,9 @@
    font-size: 18px;
    font-weight: 400;
    line-height: normal;
+   @media (max-width:550px) {
+    font-size: 16px;
+   }
   }
  }
  &__content {
@@ -83,11 +100,30 @@
     display: flex;
     align-items: center;
     gap: 15px;
+    @media (max-width:550px) {
+      gap: 8px;
+    }
+    svg {
+    @media (max-width:550px) {
+      width: 12px;
+      height: 12px;
+    }
+    }
+
   }
   &__free {
     display: flex;
     align-items: center;
     gap: 15px;
+    @media (max-width:550px) {
+        gap: 8px;
+      }
+    svg {
+      @media (max-width:550px) {
+        width: 12px;
+          height: 12px;
+        }
+    }
   }
 }
 .free {

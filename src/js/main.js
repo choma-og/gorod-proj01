@@ -5,7 +5,6 @@ import 'swiper/swiper-bundle.css';
 import '@/styles/style.scss';
 import SimpleParallax from 'simple-parallax-js';
 import axios from 'axios';
-// import IMask from 'imask';
 import Inputmask from 'inputmask';
 
 var image = document.getElementsByClassName('thumbnail');
@@ -142,30 +141,10 @@ genPlanLink.forEach(link => {
     modalBody.classList.add("_active");
     modalContent.classList.add("_active");
     modalBody.scrollTop = 0;
-    // document.body.classList.add("_lock");
-    // modalBody.classList.add("_active");
-    // modalContent.classList.add("_active");
-    // modalOffice.classList.remove("_none");
-    // modalContainer.classList.remove("_active");
-    // sykes.classList.remove("_active");
 })
 });
+
 // /*=============== MODAL TABS ===============*/
-// const modalItem = document.querySelectorAll(".modal__plan-item");
-// const modalPlanContent = document.querySelectorAll(".modal__plan-content");
-
-// modalItem.forEach((tab, index) => {
-//   tab.addEventListener("click", () => {
-
-//     modalItem.forEach((tab) => tab.classList.remove("_active"))
-//     tab.classList.add("_active");
-
-//     modalPlanContent.forEach(c => c.classList.remove("_active"));
-//     modalPlanContent[index].classList.add("_active");
-//   });
-// });
-
-// modalItem[2].click();
 
 /*=============== ADVANTAGES SLIDER ===============*/
 
@@ -224,7 +203,6 @@ function scrollHeader() {
   const menuIcon = document.getElementById('menu-icon')
   const btnStroke = document.getElementById('btn--stroke')
 
-  // const header = document.getElementById('header')
   if (this.scrollY >= 50) 
   {
     header.classList.add('scroll-header');
@@ -239,7 +217,6 @@ function scrollHeader() {
     menuIcon.classList.remove('scroll-icon');
     btnStroke.classList.remove('scroll-btn');
   }
-  // if (this.scrollY >= 50) header.classList.add('scroll-header'); else header.classList.remove('scroll-header')
 }
 window.addEventListener('scroll', scrollHeader)
 
@@ -250,7 +227,6 @@ var swiperRoom = new Swiper(".room__swiper", {
   clickable: true,
   slideToClickedSlide: true,
   centeredSlides: false,
-  // slidesPerView: 3,
   grabCursor: true,
   loop: true,
   modules: [Navigation],
@@ -279,9 +255,6 @@ var swiperRoom = new Swiper(".room__swiper", {
 });
 
 /*=============== SHOW POP UP SLIDER===============*/
-// const modalBody = document.querySelector(".modal__body");
-// const slides = document.querySelectorAll('.room__card');
-// const modalContent = document.querySelector(".modal__content");
 const modalClose = document.querySelector(".modal__close");
 const slides = document.querySelectorAll('.room__card');
 
@@ -290,27 +263,18 @@ slides.forEach(slide => {
     document.body.classList.add("_lock");
     modalBody.classList.add("_active");
     modalContent.classList.add("_active");
-    // modalOffice.classList.remove("_none");
-    modalContainer.classList.remove("_active");
-    // sykes.classList.remove("_active");
+    modalBody.scrollTop = 0;
+    // modalContainer.classList.remove("_active");
 })
 });
 
-  // popupBody.addEventListener("click", (e) => {
-  //   if (e.target === popupBody) {
-  //     document.body.classList.remove("stop-scrolling");
-  //     modalBody.classList.remove("_active");
-  //     popupContent.classList.remove("_active");
-  //   }
-  // })
   window.addEventListener("keydown", (e) => {
     if (e.key === 'Escape') {
       document.body.classList.remove("_lock");
       modalBody.classList.remove("_active");
       modalContent.classList.remove("_active");
-      // modalOffice.classList.remove("_none");
       modalContainer.classList.remove("_active");
-      // sykes.classList.remove("_active");
+
     }
   })
 
@@ -318,33 +282,36 @@ slides.forEach(slide => {
     document.body.classList.remove("_lock");
     modalBody.classList.remove("_active");
     modalContent.classList.remove("_active");
-    // modalOffice.classList.remove("_none");
     modalContainer.classList.remove("_active");
-    // sykes.classList.remove("_active");
-    
+
     closeModalGenplanImg();
   })
 
-/*=============== SHOW SYKES ===============*/
-// const sykes = document.querySelector('.sykes');
-// const sykesBtn = document.querySelector('.lease__submit');
-// const modalOffice = document.querySelector(".modal__office");
-// const modalContainer = document.querySelector(".modal__container");
-// // const modalLease = document.querySelector(".modal__lease");
-// // const modalPlan = document.querySelector(".modal__plan");
-// if (sykesBtn) {
-//   sykesBtn.addEventListener("click", e => {
-//     // modalOffice.classList.add("_none");
-//     // sykes.classList.add("_active");
-//     modalContainer.classList.add("_active");
-//   })
-// }
 
+function validatePhone(phone)  {
+  const cleanedPhone = phone.replace(/\D/g, "");
+  console.log(new String(cleanedPhone).length)
+  console.log(cleanedPhone.length === 11, "partial")
 
+  if(cleanedPhone.length === 11) {
+    return true; 
+  } else {
+    return false;
+  }
+}
+function validateText(text)  {
+  const trimmedText = text.trim();
+
+    if (trimmedText.length >= 2) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 const validate = (input) => {
-  const dataType = "";
-  let res;
+  const dataType = input.getAttribute("data-type");
+  let res = true;
   switch(dataType) {
       case "phone": 
       res = validatePhone(input.value)
@@ -353,7 +320,7 @@ const validate = (input) => {
       res = validateText(input.value)
       break;
   }
-
+  console.log(input, res, dataType)
   return res;
 }
 
@@ -361,6 +328,9 @@ const validate = (input) => {
 let forms = document.querySelectorAll('.js-form');
 const modalSykesBody = document.querySelector('.sykes__body');
 const sykesClose = document.querySelector('.sykes__close');
+const validateTextNull = document.querySelectorAll('.validate__form-text--null');
+const validateErrorName = document.querySelector('.validate__form-error--name');
+const validateErrorPhone = document.querySelector('.validate__form-error--phone');
 forms.forEach((form) => {
   let formButton = form.querySelector(".js-form-submit");
 
@@ -370,21 +340,39 @@ forms.forEach((form) => {
   const inputs = form.querySelectorAll("input");
   const method = form.method;
   const action = form.action;
+  let isValidated = true;
   let formData = [];
 
   inputs.forEach(input => {
-
-
-    if(validate(input)) {
-
       formData.push({
         name: input.name,
         value: input.value,
+        isValidate: validate(input),
       })  
-    } else {
+  })
 
+  formData.forEach(item => {
+    const input = form.querySelector(`[name="${item.name}"]`);
+    const wrapper = input.parentNode;
+    const errorBlock = wrapper.querySelector('.js-error');
+    // const inputName = document.querySelector(".feedback__name");
+    // const inputTel = document.querySelector(".feedback__tel");
+    if(!item.isValidate) {
+        isValidated = false;
+        errorBlock.classList.add("_active")
+        // inputName.classList.add("_active");
+        // inputTel.classList.add("_active");
+    } else {
+        errorBlock.classList.remove("_active")
+        // inputName.classList.remove("_active");
+        // inputTel.classList.remove("_active");
     }
   })
+
+  if(!isValidated) {
+    formButton.disabled = false;
+    return false;
+  }
 
     axios({
         method,
@@ -407,12 +395,6 @@ sykesClose.addEventListener('click' , () => {
   console.log("click")
 }) 
 })
-
-// const sykesClose = document.querySelector('sykes__close');
-// sykesClose.addEventListener('click' , () => {
-//   modalSykesBody.classList.remove("_active");
-//   document.body.classList.remove("_lock");
-// }) 
 
 /*=============== MASK FORM TEL ===============*/ 
 const phones = document.querySelectorAll('[data-mask="phone"]');
